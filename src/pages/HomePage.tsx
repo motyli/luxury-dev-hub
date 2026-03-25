@@ -152,6 +152,93 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Template Gallery */}
+      {templates.length > 0 && (
+        <section className="py-24">
+          <div className="container mx-auto px-4">
+            <motion.h2
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={0}
+              className="text-3xl md:text-4xl font-bold text-center mb-4"
+            >
+              העבודות <span className="text-gradient">שלנו</span>
+            </motion.h2>
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={1}
+              className="text-center text-muted-foreground mb-16 max-w-lg mx-auto"
+            >
+              הצצה לפרויקטים שבנינו עבור לקוחותינו
+            </motion.p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {templates.map((template, i) => (
+                <motion.div
+                  key={template.id}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  custom={i + 2}
+                  className="rounded-2xl overflow-hidden surface glow-border group"
+                >
+                  {template.image_url ? (
+                    <div className="h-48 overflow-hidden">
+                      <img
+                        src={template.image_url}
+                        alt={template.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-48 bg-secondary/50 flex items-center justify-center">
+                      <span className="text-muted-foreground text-sm">אין תמונה</span>
+                    </div>
+                  )}
+                  <div className="p-6">
+                    {template.category && (
+                      <span className="text-xs font-medium text-primary mb-2 block">{template.category}</span>
+                    )}
+                    <h3 className="text-lg font-bold text-foreground mb-2">{template.title}</h3>
+                    {template.description && (
+                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-2">{template.description}</p>
+                    )}
+                    {template.live_url && (
+                      <a
+                        href={template.live_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+                      >
+                        צפייה בדמו
+                        <ExternalLink size={14} />
+                      </a>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="text-center mt-10">
+              <Link
+                to="/templates"
+                className="inline-flex items-center gap-2 rounded-xl border border-border px-8 py-3 font-semibold text-foreground transition-all hover:bg-secondary"
+              >
+                לכל הגלריה
+                <ArrowLeft size={18} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-4">
