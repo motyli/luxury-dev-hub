@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Code2, Zap, Layers, ArrowLeft } from "lucide-react";
+import { Code2, Zap, Layers, ArrowLeft, ExternalLink } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import heroBg from "@/assets/hero-bg.jpg";
+
+interface Template {
+  id: string;
+  title: string;
+  description: string | null;
+  image_url: string | null;
+  category: string | null;
+  live_url: string | null;
+}
 
 const services = [
   {
@@ -31,6 +42,16 @@ const fadeUp = {
 };
 
 const HomePage = () => {
+  const [templates, setTemplates] = useState<Template[]>([]);
+
+  useEffect(() => {
+    const load = async () => {
+      const { data } = await supabase.from("templates").select("*").order("created_at", { ascending: false }).limit(6);
+      setTemplates(data ?? []);
+    };
+    load();
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
