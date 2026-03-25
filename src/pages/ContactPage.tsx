@@ -120,7 +120,7 @@ const ContactPage = () => {
           >
             {[
               { icon: Phone, label: "טלפון", value: "03-1234567" },
-              { icon: Mail, label: "אימייל", value: "info@devflow.co.il" },
+              { icon: Mail, label: "אימייל", value: "info@mlpixelpeak.co.il" },
               { icon: MapPin, label: "כתובת", value: "תל אביב, ישראל" },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-4 rounded-2xl surface p-6 glow-border">
