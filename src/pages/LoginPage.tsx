@@ -19,7 +19,11 @@ const LoginPage = () => {
     if (isLogin) {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
-        toast.error("שגיאה בהתחברות: " + error.message);
+        if (error.message.includes("Invalid login credentials")) {
+          toast.error("האימייל או הסיסמה שגויים. אם אין לכם חשבון, הירשמו קודם.");
+        } else {
+          toast.error("שגיאה בהתחברות: " + error.message);
+        }
       } else {
         toast.success("התחברתם בהצלחה!");
         navigate("/dashboard");
@@ -36,7 +40,8 @@ const LoginPage = () => {
       if (error) {
         toast.error("שגיאה בהרשמה: " + error.message);
       } else {
-        toast.success("נרשמתם בהצלחה! בדקו את האימייל שלכם");
+        toast.success("נרשמתם בהצלחה! אתם יכולים להתחבר עכשיו.");
+        setIsLogin(true);
       }
     }
     setLoading(false);
