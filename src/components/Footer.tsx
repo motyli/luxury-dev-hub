@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold text-gradient mb-4">DevFlow</h3>
+            <h3 className="text-xl font-bold text-gradient mb-4">ML • PixelPeak</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
               סוכנות פיתוח מובילה המתמחה בפתרונות Full-Stack מקצה לקצה ואוטומציות עסקיות.
             </p>
@@ -22,12 +22,12 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="font-semibold text-foreground mb-4">יצירת קשר</h4>
-            <p className="text-sm text-muted-foreground">info@devflow.co.il</p>
+            <p className="text-sm text-muted-foreground">info@mlpixelpeak.co.il</p>
             <p className="text-sm text-muted-foreground">03-1234567</p>
           </div>
         </div>
         <div className="mt-10 pt-6 border-t border-border text-center">
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} DevFlow. כל הזכויות שמורות.</p>
+          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} ML • PixelPeak. כל הזכויות שמורות.</p>
         </div>
       </div>
     </footer>
