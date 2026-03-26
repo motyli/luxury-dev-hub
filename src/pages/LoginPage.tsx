@@ -40,7 +40,7 @@ const LoginPage = () => {
       if (error) {
         toast.error("שגיאה בהרשמה: " + error.message);
       } else {
-        toast.success("נרשמתם בהצלחה! אתם יכולים להתחבר עכשיו.");
+        toast.success("נרשמתם בהצלחה! שלחנו לכם מייל אימות – אנא אשרו אותו לפני ההתחברות.");
         setIsLogin(true);
       }
     }

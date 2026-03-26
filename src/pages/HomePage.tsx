@@ -152,6 +152,83 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* About Us */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={0}
+            className="text-3xl md:text-4xl font-bold text-center mb-4"
+          >
+            קצת <span className="text-gradient">עלינו</span>
+          </motion.h2>
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={1}
+            className="text-center text-muted-foreground mb-16 max-w-lg mx-auto"
+          >
+            הכירו את הצוות שמאחורי ML • PixelPeak
+          </motion.p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={2}
+              className="rounded-2xl surface glow-border p-8 md:p-10"
+            >
+              <h3 className="text-xl font-bold text-foreground mb-4">מי אנחנו?</h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                ב-ML • PixelPeak אנחנו סוכנות פיתוח בוטיק שמתמחה בבניית מוצרים דיגיטליים מקצה לקצה. אנחנו מאמינים שטכנולוגיה טובה היא כזו שפשוט עובדת – בלי סיבוכים מיותרים.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                הצוות שלנו מורכב ממפתחים ומעצבים עם ניסיון רב בבניית אתרים, אפליקציות ואוטומציות עסקיות לחברות מכל הגדלים.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                אנחנו גאים בגישה האישית שלנו – כל פרויקט מקבל תשומת לב מלאה, מהרעיון הראשוני ועד ההשקה וההתמיכה לאחריה.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={3}
+              className="grid grid-cols-2 gap-4"
+            >
+              {[
+                { value: "50+", label: "פרויקטים שהושלמו" },
+                { value: "3+", label: "שנות ניסיון" },
+                { value: "98%", label: "שביעות רצון לקוחות" },
+                { value: "24/7", label: "תמיכה טכנית" },
+              ].map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  custom={i + 4}
+                  className="rounded-2xl surface glow-border p-6 text-center"
+                >
+                  <p className="text-2xl md:text-3xl font-black text-primary mb-1">{stat.value}</p>
+                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Template Gallery */}
       {templates.length > 0 && (
         <section className="py-24">
