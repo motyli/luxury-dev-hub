@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav className="fixed top-0 right-0 left-0 z-50 glass">
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
         <Link to="/" className="text-2xl font-bold text-gradient">
-          ML • PixelPeak
+          ML • --------------
         </Link>
 
         {/* Desktop */}
