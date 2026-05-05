@@ -29,6 +29,7 @@ const TemplateGallery = () => {
     const fetch = async () => {
       const { data } = await supabase.from("templates").select("*").order("created_at", { ascending: false });
       setTemplates(data ?? []);
+      console.log(data);
       setLoading(false);
     };
     fetch();
